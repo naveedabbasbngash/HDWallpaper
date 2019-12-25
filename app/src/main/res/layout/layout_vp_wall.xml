@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:background="@android:color/black">
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/my_image_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        fresco:actualImageScaleType="centerCrop"
+        fresco:placeholderImageScaleType="fitCenter"
+        fresco:placeholderImage="@drawable/placeholder_wall" />
+
+    <fr.castorflex.android.circularprogressbar.CircularProgressBar
+        android:id="@+id/pb_wall_details"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_centerInParent="true"
+        android:indeterminate="true"
+        fresco:cpb_color="#FFee44"
+        fresco:cpb_colors="@array/pocket_bar_colors"
+        fresco:cpb_max_sweep_angle="300"
+        fresco:cpb_min_sweep_angle="10"
+        fresco:cpb_rotation_speed="1.0"
+        fresco:cpb_stroke_width="4dp"
+        fresco:cpb_sweep_speed="1.0" />
+
+</RelativeLayout>

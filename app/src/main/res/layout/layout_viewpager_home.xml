@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rl"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.makeramen.roundedimageview.RoundedImageView
+        android:id="@+id/iv_vp_home"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        app:riv_corner_radius="10dp"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/bg_grt_black_round_bottom"/>
+
+    <TextView
+        android:id="@+id/tv_pager_cat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:padding="10dp"
+        android:textSize="16sp"
+        android:layout_margin="10dp"
+        android:layout_toLeftOf="@+id/button_pager_fav"
+        android:layout_toStartOf="@+id/button_pager_fav"
+        android:layout_alignParentBottom="true"/>
+
+    <com.like.LikeButton
+        android:id="@+id/button_pager_fav"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:like_drawable="@mipmap/fav_hover"
+        app:unlike_drawable="@mipmap/fav"
+        app:circle_end_color="@color/colorPrimary"
+        app:circle_start_color="@color/red"
+        app:dots_primary_color="@color/colorPrimary"
+        app:dots_secondary_color="@color/red"
+        app:icon_size="30dp"
+        app:anim_scale_factor="2"
+        app:is_enabled="true"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="5dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"/>
+
+</RelativeLayout>

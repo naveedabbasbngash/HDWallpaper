@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="zs.wallpapers.site"
+    android:installLocation="auto">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.SET_WALLPAPER"/>
+    <uses-permission android:name="android.permission.SET_WALLPAPER_HINTS"/>
+
+    <application
+        android:name="zs.wallpapers.site.hdwallpaper.MyApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/zslogo"
+        android:roundIcon="@drawable/zslogo"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:largeHeap="true">
+
+        <activity android:name="zs.wallpapers.site.hdwallpaper.SplashActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="zs.wallpapers.site.hdwallpaper.MainActivity"
+            android:label="@string/title_activity_main"
+            android:screenOrientation="portrait"/>
+        <activity android:name="zs.wallpapers.site.hdwallpaper.AboutActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name="zs.wallpapers.site.hdwallpaper.WallpaperByCatActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name="zs.wallpapers.site.hdwallpaper.WallPaperDetailsActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name="zs.wallpapers.site.hdwallpaper.WallPaperViewActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name="zs.wallpapers.site.hdwallpaper.GIFsDetailsActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name="zs.wallpapers.site.hdwallpaper.GIFsViewActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name="zs.wallpapers.site.hdwallpaper.SearchWallActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name="zs.wallpapers.site.hdwallpaper.SearchGIFActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name="zs.wallpapers.site.hdwallpaper.SettingActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name="zs.wallpapers.site.hdwallpaper.SetWallpaperActivity"
+            android:screenOrientation="portrait"/>
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <!-- Activity required to show ad overlays. -->
+        <activity
+            android:name="com.google.android.gms.ads.AdActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />
+
+        <service
+            android:name="zs.wallpapers.site.utils.NotificationExtenderExample"
+            android:exported="false"
+            android:permission="android.permission.BIND_JOB_SERVICE">
+            <intent-filter>
+                <action android:name="com.onesignal.NotificationExtender" />
+            </intent-filter>
+        </service>
+
+        <activity android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
+            android:theme="@style/Base.Theme.AppCompat"/>
+
+        <meta-data
+            android:name="firebase_crashlytics_collection_enabled"
+            android:value="false" />
+
+    </application>
+
+</manifest>

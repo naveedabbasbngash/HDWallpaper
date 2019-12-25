@@ -1,0 +1,10 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/menu_setwall"
+        android:title="@string/set_wallpaper"
+        app:showAsAction="ifRoom"
+        android:icon="@mipmap/set_wall_white"/>
+
+</menu>

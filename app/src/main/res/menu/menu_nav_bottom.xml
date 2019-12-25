@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_bottom_home"
+        android:icon="@mipmap/home"
+        android:title="@string/home" />
+
+    <item
+        android:id="@+id/nav_bottom_latest"
+        android:icon="@mipmap/latest"
+        android:title="@string/latest" />
+
+    <item
+        android:id="@+id/nav_bottom_cat"
+        android:icon="@mipmap/cat"
+        android:title="@string/categories" />
+
+    <item
+        android:id="@+id/nav_bottom_popular"
+        android:icon="@mipmap/popular"
+        android:title="@string/popular" />
+
+    <item
+        android:id="@+id/nav_bottom_rated"
+        android:icon="@mipmap/rated"
+        android:title="@string/rated" />
+
+</menu>
