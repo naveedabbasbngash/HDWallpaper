@@ -3,6 +3,8 @@ package zs.wallpapers.site.hdwallpaper;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
+import android.app.WallpaperManager;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -25,6 +27,7 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -47,6 +50,7 @@ import com.like.LikeButton;
 import com.like.OnLikeListener;
 import com.squareup.picasso.Picasso;
 
+import zs.wallpapers.site.GIFWallpaperService;
 import zs.wallpapers.site.R;
 import zs.wallpapers.site.adapter.AdapterTags;
 import zs.wallpapers.site.asyncTask.GetRating;
@@ -98,6 +102,7 @@ public class GIFsDetailsActivity extends AppCompatActivity {
     RelativeLayout coordinatorLayout;
     SharedPref sharedPref;
     final int MY_PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE = 102;
+    private Uri myuri;
 
     @Override
     protected void attachBaseContext(Context newBase) {
@@ -120,6 +125,9 @@ public class GIFsDetailsActivity extends AppCompatActivity {
                         break;
                     case "share":
                         new SaveTask("share").execute(Constant.arrayListGIF.get(viewpager.getCurrentItem()).getImage());
+                        break;
+                    case "set":
+                        new SaveTask("set").execute(Constant.arrayList.get(viewpager.getCurrentItem()).getImage());
                         break;
                 }
             }
@@ -161,7 +169,7 @@ public class GIFsDetailsActivity extends AppCompatActivity {
         loadViewed(position);
 
         ll_fav.setVisibility(View.VISIBLE);
-        ll_setas.setVisibility(View.VISIBLE);
+        ll_setas.setVisibility(View.GONE);
         button_fav_wall.setVisibility(View.GONE);
 
         rv_tags = findViewById(R.id.rv_tags);
@@ -202,7 +210,15 @@ public class GIFsDetailsActivity extends AppCompatActivity {
             @Override
             public void onClick(View view)
             {
-                Toast.makeText(GIFsDetailsActivity.this, "Set As Clicked", Toast.LENGTH_SHORT).show();
+                /*methods.showInter(0, "set");*/
+               /* Intent intent = new Intent(
+                        WallpaperManager.ACTION_CHANGE_LIVE_WALLPAPER);
+                intent.putExtra("check","yess");
+                intent.putExtra(WallpaperManager.EXTRA_LIVE_WALLPAPER_COMPONENT,
+                        new ComponentName(GIFsDetailsActivity.this, GIFWallpaperService.class));
+                startActivity(intent);*/
+               /* Log.d("my uri", String.valueOf(myuri));
+                Toast.makeText(GIFsDetailsActivity.this, "Set As Clicked", Toast.LENGTH_SHORT).show();*/
             }
         });
 
@@ -441,6 +457,9 @@ public class GIFsDetailsActivity extends AppCompatActivity {
                                     new MediaScannerConnection.OnScanCompletedListener() {
                                         @Override
                                         public void onScanCompleted(String path, Uri uri) {
+                                            myuri=uri;
+                                            Log.d("file path",path+" uri: "+uri);
+
 
                                         }
                                     });
@@ -453,6 +472,7 @@ public class GIFsDetailsActivity extends AppCompatActivity {
                 } else {
                     if (option.equals("set")) {
                         bmImg = BitmapFactory.decodeFile(file.getAbsolutePath());
+                        Log.d("path",file.getAbsolutePath());
                     }
                     return "2";
                 }
