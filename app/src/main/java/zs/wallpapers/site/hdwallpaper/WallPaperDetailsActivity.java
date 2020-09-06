@@ -44,6 +44,10 @@ import com.facebook.drawee.controller.BaseControllerListener;
 import com.facebook.drawee.interfaces.DraweeController;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.facebook.imagepipeline.image.ImageInfo;
+import com.huawei.hms.ads.AdListener;
+import com.huawei.hms.ads.AdParam;
+import com.huawei.hms.ads.HwAds;
+import com.huawei.hms.ads.InterstitialAd;
 import com.like.LikeButton;
 import com.like.OnLikeListener;
 
@@ -79,6 +83,8 @@ import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class WallPaperDetailsActivity extends AppCompatActivity {
 
+    private InterstitialAd interstitialAd;
+
     DBHelper dbHelper;
     Toolbar toolbar;
     Methods methods;
@@ -107,6 +113,12 @@ public class WallPaperDetailsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wallpaper_details);
+        HwAds.init(this);
+
+        interstitialAd = new InterstitialAd(this);
+        interstitialAd.setAdId("k9upmjhpxu");
+
+        interstitialAd.setAdListener(adListener);
 
         toolbar = findViewById(R.id.toolbar_wall_details);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
@@ -430,11 +442,15 @@ public class WallPaperDetailsActivity extends AppCompatActivity {
                     case "save":
                         if (args.equals("2")) {
                             methods.showSnackBar(coordinatorLayout, getResources().getString(R.string.wallpaper_already_saved));
+                            loadInterstitialAd();
+
                         } else {
                             if (methods.isNetworkAvailable()) {
                                 new MyTask("download").execute(Constant.URL_WALLPAPER_DOWNLOAD + Constant.arrayList.get(viewpager.getCurrentItem()).getId(), String.valueOf(viewpager.getCurrentItem()));
                             }
                             methods.showSnackBar(coordinatorLayout, getResources().getString(R.string.wallpaper_saved));
+                            loadInterstitialAd();
+
                         }
                         break;
                     case "set":
@@ -654,6 +670,55 @@ public class WallPaperDetailsActivity extends AppCompatActivity {
 
                 }
             }
+        }
+    }
+
+    private AdListener adListener = new AdListener() {
+        @Override
+        public void onAdLoaded() {
+            // Called when an ad is loaded successfully.
+            showInterstitialAd();
+        }
+        @Override
+        public void onAdFailed(int errorCode) {
+            // Called when an ad fails to be loaded.
+        }
+        @Override
+        public void onAdClosed() {
+            // Called when an ad is closed.
+        }
+        @Override
+        public void onAdClicked() {
+            // Called when an ad is clicked.
+        }
+        @Override
+        public void onAdLeave() {
+            // Called when a user leaves an ad.
+        }
+        @Override
+        public void onAdOpened() {
+            // Called when an ad is opened.
+        }
+        @Override
+        public void onAdImpression() {
+            // Called when an ad impression occurs.
+        }
+    };
+
+
+    private void loadInterstitialAd() {
+        // "testb4znbuh3n2" is a dedicated test ad slot ID.
+        AdParam adParam = new AdParam.Builder().build();
+        interstitialAd.loadAd(adParam);
+
+    }
+
+    private void showInterstitialAd() {
+        // Display the ad.
+        if (interstitialAd != null && interstitialAd.isLoaded()) {
+            interstitialAd.show();
+        } else {
+            Toast.makeText(this, "Ad did not load", Toast.LENGTH_SHORT).show();
         }
     }
 }

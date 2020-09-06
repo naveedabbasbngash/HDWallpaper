@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:hwads="http://schemas.android.com/tools"
     android:fillViewport="true"
     app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
@@ -34,7 +35,15 @@
                 android:layout_marginLeft="8dp"
                 android:layout_marginStart="8dp"
                 android:gravity="center"
-                android:orientation="horizontal">
+                android:weightSum="2"
+                android:orientation="vertical">
+
+
+                <LinearLayout
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
 
                 <com.makeramen.roundedimageview.RoundedImageView
                     android:layout_width="4dp"
@@ -63,6 +72,17 @@
                     android:text="@string/view_all"
                     android:textColor="@color/text_view_all"
                     android:textSize="13sp"/>
+                </LinearLayout>
+                <com.huawei.hms.ads.banner.BannerView
+                    android:layout_weight="1"
+                    android:id="@+id/hw_banner_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    hwads:adId="u4jqa6ms9f"
+                    android:layout_gravity="bottom"
+                    hwads:bannerSize="BANNER_SIZE_360_57"/>
 
             </LinearLayout>
 

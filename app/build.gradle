@@ -8,13 +8,13 @@ android {
     buildToolsVersion '28.0.3'
     defaultConfig {
         applicationId "zs.wallpapers.site"
-        minSdkVersion 16
+        minSdkVersion 17
         targetSdkVersion 28
-        versionCode 2
-        versionName "1.1"
+        versionCode 7
+        versionName "7.1"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
-        manifestPlaceholders = [onesignal_app_id               : "b0c91eb1-4d40-41f1-abc7-51c75f96f87e",
+        manifestPlaceholders = [onesignal_app_id: "b0c91eb1-4d40-41f1-abc7-51c75f96f87e",
                                 // Project number pulled from dashboard, local value is ignored.
                                 onesignal_google_project_number: "REMOTE"]
 
@@ -79,4 +79,7 @@ dependencies {
     implementation 'com.github.castorflex.smoothprogressbar:library-circular:1.3.0'
     implementation 'commons-io:commons-io:2.4'
     implementation 'org.jetbrains:annotations-java5:15.0'
+    implementation 'com.huawei.agconnect:agconnect-core:1.3.1.300'
+    implementation 'com.huawei.hms:ads-lite:13.4.31.300'
 }
+apply plugin: 'com.huawei.agconnect'

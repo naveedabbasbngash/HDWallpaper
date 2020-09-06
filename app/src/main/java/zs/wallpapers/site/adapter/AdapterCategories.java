@@ -67,7 +67,11 @@ public class AdapterCategories extends RecyclerView.Adapter {
         ((MyViewHolder) holder).relativeLayout.setLayoutParams(params);
         ((MyViewHolder) holder).textView_cat.setTypeface(((MyViewHolder) holder).textView_cat.getTypeface(), Typeface.BOLD);
         ((MyViewHolder) holder).textView_cat.setText(arrayList.get(position).getName());
+
+        ((MyViewHolder) holder).textView_item_no.setVisibility(View.GONE);
+        /*
         ((MyViewHolder) holder).textView_item_no.setText("Items (" + arrayList.get(position).getTotalWallpaper() + ")");
+*/
         Picasso.get()
                 .load(arrayList.get(position).getImageThumb().replace(" ", "%20"))
                 .placeholder(R.drawable.placeholder_cat)

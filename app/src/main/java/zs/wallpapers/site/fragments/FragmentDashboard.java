@@ -1,4 +1,4 @@
-package zs.wallpapers.site.fragments;
+package zs.wallpapers.site;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -13,12 +13,18 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
-import zs.wallpapers.site.R;
-import zs.wallpapers.site.hdwallpaper.MainActivity;
+import com.huawei.hms.ads.AdParam;
+import com.huawei.hms.ads.BannerAdSize;
+import com.huawei.hms.ads.banner.BannerView;
 
-import zs.wallpapers.site.utils.Methods;
 
 import java.lang.reflect.Field;
+
+import zs.wallpapers.site.fragments.FragmentCategories;
+import zs.wallpapers.site.fragments.FragmentHome;
+import zs.wallpapers.site.fragments.FragmentLatest;
+import zs.wallpapers.site.hdwallpaper.MainActivity;
+import zs.wallpapers.site.utils.Methods;
 
 public class FragmentDashboard extends Fragment {
 
@@ -30,11 +36,13 @@ public class FragmentDashboard extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_dashboard, container, false);
 
+
         methods = new Methods(getActivity());
         fm = getFragmentManager();
 
         bottomNavigationMenu = rootView.findViewById(R.id.navigation_bottom);
         bottomNavigationMenu.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+
 
         BottomNavigationMenuView menuView = (BottomNavigationMenuView)
                 bottomNavigationMenu.getChildAt(0);

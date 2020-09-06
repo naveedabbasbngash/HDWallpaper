@@ -22,23 +22,19 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
 
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
+import zs.wallpapers.site.FragmentDashboard;
 import zs.wallpapers.site.R;
 import zs.wallpapers.site.asyncTask.LoadAbout;
-import zs.wallpapers.site.fragments.FragmentDashboard;
 import zs.wallpapers.site.fragments.FragmentFavourite;
 import zs.wallpapers.site.fragments.FragmentGIFs;
-
-
-
 import zs.wallpapers.site.interfaces.AboutListener;
-import zs.wallpapers.site.utils.AdConsent;
 import zs.wallpapers.site.interfaces.AdConsentListener;
+import zs.wallpapers.site.utils.AdConsent;
 import zs.wallpapers.site.utils.Constant;
 import zs.wallpapers.site.utils.DBHelper;
 import zs.wallpapers.site.utils.Methods;
 import zs.wallpapers.site.utils.SharedPref;
-
-import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 

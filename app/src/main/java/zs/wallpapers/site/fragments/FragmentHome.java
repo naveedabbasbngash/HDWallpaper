@@ -22,11 +22,15 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.gigamole.infinitecycleviewpager.HorizontalInfiniteCycleViewPager;
+import com.huawei.hms.ads.AdParam;
+import com.huawei.hms.ads.BannerAdSize;
+import com.huawei.hms.ads.banner.BannerView;
 import com.like.LikeButton;
 import com.like.OnLikeListener;
 import com.makeramen.roundedimageview.RoundedImageView;
 import com.squareup.picasso.Picasso;
 
+import zs.wallpapers.site.FragmentDashboard;
 import zs.wallpapers.site.R;
 import zs.wallpapers.site.adapter.AdapterCategoriesHome;
 import zs.wallpapers.site.adapter.AdapterImageHome;
@@ -73,6 +77,12 @@ public class FragmentHome extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_home, container, false);
 
+        BannerView bannerView = rootView.findViewById(R.id.hw_banner_view);
+        bannerView.setAdId("u4jqa6ms9f");
+        bannerView.setBannerAdSize(BannerAdSize.BANNER_SIZE_360_57);
+        // Create an ad request to load an ad.
+        AdParam adParam = new AdParam.Builder().build();
+        bannerView.loadAd(adParam);
         dbHelper = new DBHelper(getActivity());
         methods = new Methods(getActivity(), new InterAdListener() {
             @Override

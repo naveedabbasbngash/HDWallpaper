@@ -27,6 +27,7 @@ import android.widget.RadioButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import zs.wallpapers.site.FragmentDashboard;
 import zs.wallpapers.site.R;
 import zs.wallpapers.site.adapter.AdapterWallpaper;
 import zs.wallpapers.site.asyncTask.LoadWallpaper;
