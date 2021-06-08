@@ -90,7 +90,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <android.support.v7.widget.RecyclerView
+                <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rv_home_cat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -161,7 +161,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <android.support.v7.widget.RecyclerView
+                <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rv_home_portrait"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -232,7 +232,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <android.support.v7.widget.RecyclerView
+                <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rv_home_landscape"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -305,7 +305,7 @@
                 android:layout_marginBottom="10dp"
                 android:paddingBottom="50dp">
 
-                <android.support.v7.widget.RecyclerView
+                <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rv_home_square"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

@@ -24,7 +24,7 @@ package zs.bosong.frescozoomablelib.zoomable;
 
 import android.graphics.Matrix;
 import android.graphics.PointF;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 import zs.bosong.frescozoomablelib.gestures.TransformGestureDetector;
 import com.facebook.common.logging.FLog;

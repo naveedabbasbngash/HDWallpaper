@@ -1,25 +1,25 @@
-package zs.wallpapers.site;
+package zs.wallpapers.site.fragments;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.design.internal.BottomNavigationItemView;
-import android.support.design.internal.BottomNavigationMenuView;
-import android.support.design.widget.BottomNavigationView;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
+import androidx.annotation.NonNull;
+import com.google.android.material.bottomnavigation.BottomNavigationItemView;
+import com.google.android.material.bottomnavigation.BottomNavigationMenuView;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.bottomnavigation.LabelVisibilityMode;
+
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.huawei.hms.ads.AdParam;
-import com.huawei.hms.ads.BannerAdSize;
-import com.huawei.hms.ads.banner.BannerView;
-
 
 import java.lang.reflect.Field;
 
+import zs.wallpapers.site.R;
 import zs.wallpapers.site.fragments.FragmentCategories;
 import zs.wallpapers.site.fragments.FragmentHome;
 import zs.wallpapers.site.fragments.FragmentLatest;
@@ -32,6 +32,7 @@ public class FragmentDashboard extends Fragment {
     public static BottomNavigationView bottomNavigationMenu;
     FragmentManager fm;
 
+    @SuppressLint("RestrictedApi")
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_dashboard, container, false);
@@ -39,6 +40,7 @@ public class FragmentDashboard extends Fragment {
 
         methods = new Methods(getActivity());
         fm = getFragmentManager();
+
 
         bottomNavigationMenu = rootView.findViewById(R.id.navigation_bottom);
         bottomNavigationMenu.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
@@ -58,8 +60,12 @@ public class FragmentDashboard extends Fragment {
 
                 BottomNavigationItemView item =
                         (BottomNavigationItemView) menuView.getChildAt(i);
-                item.setShiftingMode(false);
+
+                item.setLabelVisibilityMode(LabelVisibilityMode.LABEL_VISIBILITY_LABELED);
+
+                //item.setShiftingMode(false);
                 //To update view, set the checked value again
+                item.setChecked(item.getItemData().isChecked());
                 item.setChecked(item.getItemData().isChecked());
             }
         } catch (NoSuchFieldException e) {

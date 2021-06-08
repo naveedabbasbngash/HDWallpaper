@@ -3,9 +3,8 @@ package zs.wallpapers.site.hdwallpaper;
 import android.app.Application;
 import android.content.Context;
 import android.os.StrictMode;
-import android.support.multidex.MultiDex;
+import androidx.multidex.MultiDex;
 
-import com.crashlytics.android.Crashlytics;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.google.firebase.analytics.FirebaseAnalytics;
 import com.onesignal.OneSignal;
@@ -15,8 +14,6 @@ import zs.wallpapers.site.R;
 import zs.wallpapers.site.utils.DBHelper;
 
 import java.io.IOException;
-
-import io.fabric.sdk.android.Fabric;
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 
 public class MyApplication extends Application {
@@ -47,7 +44,7 @@ public class MyApplication extends Application {
                 .init();
         Fresco.initialize(this);
 
-        Fabric.with(this, new Crashlytics());
+        //Fabric.with(this, new Crashlytics());
     }
 
     @Override

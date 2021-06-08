@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/bg_grt_toolbar" />
 
-    <android.support.v7.widget.Toolbar
+    <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar_setting"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
@@ -70,7 +70,7 @@
 
                 </LinearLayout>
 
-                <android.support.v7.widget.SwitchCompat
+                <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/switch_consent"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -106,7 +106,7 @@
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="@color/white" />
 
-                <android.support.v7.widget.SwitchCompat
+                <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/switch_noti"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

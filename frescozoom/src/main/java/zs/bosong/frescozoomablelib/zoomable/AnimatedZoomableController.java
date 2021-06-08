@@ -17,7 +17,7 @@ import android.animation.AnimatorListenerAdapter;
 import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;
 import android.graphics.Matrix;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.view.animation.DecelerateInterpolator;
 
 import zs.bosong.frescozoomablelib.gestures.TransformGestureDetector;

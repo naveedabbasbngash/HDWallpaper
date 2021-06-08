@@ -8,7 +8,9 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.design.widget.Snackbar;
+
+import com.google.android.gms.ads.InterstitialAd;
+import com.google.android.material.snackbar.Snackbar;
 import android.util.TypedValue;
 import android.view.Display;
 import android.view.View;
@@ -23,7 +25,6 @@ import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.InterstitialAd;
 
 import zs.wallpapers.site.R;
 import zs.wallpapers.site.interfaces.InterAdListener;

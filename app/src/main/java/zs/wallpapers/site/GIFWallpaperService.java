@@ -1,32 +1,19 @@
 package zs.wallpapers.site;
 
-import android.app.Service;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.Movie;
-import android.graphics.Paint;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Handler;
-import android.preference.PreferenceManager;
 import android.service.wallpaper.WallpaperService;
-import android.support.annotation.RequiresApi;
+import androidx.annotation.RequiresApi;
 import android.util.Log;
-import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.io.InputStream;
-import java.net.URL;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.List;
 
 public class GIFWallpaperService extends WallpaperService {
     private File filePath;
